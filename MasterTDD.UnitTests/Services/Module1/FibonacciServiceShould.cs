@@ -6,11 +6,19 @@ namespace MasterTDD.UnitTests.Services.Module1
     public class FibonacciServiceShould
     {
         [Fact]
-        public void Return0_AtPosition1()
+        public void Return0_AtPosition0()
+        {
+            var fibonacciNumber = FibonacciService.GetNumberAtPosition(0);
+
+            fibonacciNumber.Should().Be(0);
+        }
+
+        [Fact]
+        public void Return1_AtPosition1()
         {
             var fibonacciNumber = FibonacciService.GetNumberAtPosition(1);
 
-            fibonacciNumber.Should().Be(0);
+            fibonacciNumber.Should().Be(1);
         }
 
         [Fact]
@@ -22,31 +30,23 @@ namespace MasterTDD.UnitTests.Services.Module1
         }
 
         [Fact]
-        public void Return1_AtPosition3()
+        public void Return2_AtPosition3()
         {
             var fibonacciNumber = FibonacciService.GetNumberAtPosition(3);
-
-            fibonacciNumber.Should().Be(1);
-        }
-
-        [Fact]
-        public void Return2_AtPosition4()
-        {
-            var fibonacciNumber = FibonacciService.GetNumberAtPosition(4);
 
             fibonacciNumber.Should().Be(2);
         }
 
         [Fact]
-        public void Return3_AtPosition5()
+        public void Return3_AtPosition4()
         {
-            var fibonacciNumber = FibonacciService.GetNumberAtPosition(5);
+            var fibonacciNumber = FibonacciService.GetNumberAtPosition(4);
 
             fibonacciNumber.Should().Be(3);
         }
 
         [Fact]
-        public void Return5_AtPosition6()
+        public void Return5_AtPosition5()
         {
             var fibonacciNumber = FibonacciService.GetNumberAtPosition(5);
 
