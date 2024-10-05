@@ -19,5 +19,12 @@ namespace MasterTDD.Controllers
 
             return Ok("Is not Leap Year");
         }
+
+        [HttpGet("fibonacci/{position}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult GetFebonaccciNumberAtPosition([FromRoute] int position)
+        {
+            return Ok(FibonacciService.GetNumberAtPosition(position));
+        }
     }
 }
