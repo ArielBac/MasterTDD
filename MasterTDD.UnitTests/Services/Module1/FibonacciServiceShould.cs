@@ -28,5 +28,13 @@ namespace MasterTDD.UnitTests.Services.Module1
 
             fibonacciNumber.Should().Be(1);
         }
+
+        [Fact]
+        public void Return2_AtPosition4()
+        {
+            var fibonacciNumber = FibonacciService.GetNumberAtPosition(4);
+
+            fibonacciNumber.Should().Be(2);
+        }
     }
 }
