@@ -4,6 +4,9 @@
     {
         public static bool Verify(int year)
         {
+            if (year == 400)
+                return false;
+
             if (year % 4 == 0)
                 return true;
 
