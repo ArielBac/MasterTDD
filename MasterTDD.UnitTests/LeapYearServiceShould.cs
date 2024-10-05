@@ -60,5 +60,21 @@ namespace MasterTDD.UnitTests
 
             isLeapYear.Should().BeTrue();
         }
+
+        [Fact]
+        public void ReturnTrue_Given800()
+        {
+            var isLeapYear = LeapYearService.Verify(800);
+
+            isLeapYear.Should().BeTrue();
+        }
+
+        [Fact]
+        public void ReturnTrue_Given1200()
+        {
+            var isLeapYear = LeapYearService.Verify(1200);
+
+            isLeapYear.Should().BeTrue();
+        }
     }
 }
