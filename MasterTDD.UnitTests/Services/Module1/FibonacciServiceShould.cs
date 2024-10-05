@@ -50,7 +50,23 @@ namespace MasterTDD.UnitTests.Services.Module1
         {
             var fibonacciNumber = FibonacciService.GetNumberAtPosition(5);
 
-            fibonacciNumber.Should().Be(3);
+            fibonacciNumber.Should().Be(5);
+        }
+
+        [Fact]
+        public void Return13_AtPosition7()
+        {
+            var fibonacciNumber = FibonacciService.GetNumberAtPosition(7);
+
+            fibonacciNumber.Should().Be(13);
+        }
+
+        [Fact]
+        public void Return34_AtPosition9()
+        {
+            var fibonacciNumber = FibonacciService.GetNumberAtPosition(9);
+
+            fibonacciNumber.Should().Be(34);
         }
     }
 }
