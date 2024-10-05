@@ -4,19 +4,25 @@
     {
         public static int GetNumberAtPosition(int position)
         {
-            if (position == 6)
-                return 5;
+            if (position < 2)
+                return position;
 
-            if (position == 5)
-                return 3;
+            int aux1 = 1;
+            int aux2 = 1;
+            int fibonacciNumber = 1;
 
-            if (position == 4)
-                return 2;
+            for (int i = 2; i < position; i++)
+            {
+                fibonacciNumber = aux1 + aux2;
 
-            if (position == 2 || position == 3)
-                return 1;
+                if (i == position - 2)
+                    aux1 = fibonacciNumber;
 
-            return 0;
+                if (i == position - 1)
+                    aux2 = fibonacciNumber;
+            }
+
+            return fibonacciNumber;
         }
     }
 }
