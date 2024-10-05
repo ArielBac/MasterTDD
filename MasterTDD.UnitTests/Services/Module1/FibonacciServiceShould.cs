@@ -20,5 +20,13 @@ namespace MasterTDD.UnitTests.Services.Module1
 
             fibonacciNumber.Should().Be(1);
         }
+
+        [Fact]
+        public void Return1_AtPosition3()
+        {
+            var fibonacciNumber = FibonacciService.GetNumberAtPosition(3);
+
+            fibonacciNumber.Should().Be(1);
+        }
     }
 }
