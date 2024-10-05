@@ -4,7 +4,7 @@
     {
         public static bool Verify(int year)
         {
-            return default;
+            return true;
         }
     }
 }
