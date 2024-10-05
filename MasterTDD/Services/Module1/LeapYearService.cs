@@ -1,4 +1,4 @@
-﻿namespace MasterTDD.Services
+﻿namespace MasterTDD.Services.Module1
 {
     public static class LeapYearService
     {

@@ -1,4 +1,4 @@
-﻿using MasterTDD.Services;
+﻿using MasterTDD.Services.Module1;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MasterTDD.Controllers

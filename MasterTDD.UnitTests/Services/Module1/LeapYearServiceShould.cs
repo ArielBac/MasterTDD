@@ -1,7 +1,7 @@
 using FluentAssertions;
-using MasterTDD.Services;
+using MasterTDD.Services.Module1;
 
-namespace MasterTDD.UnitTests
+namespace MasterTDD.UnitTests.Services.Module1
 {
     public class LeapYearServiceShould
     {
