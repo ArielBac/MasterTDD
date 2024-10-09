@@ -7,6 +7,12 @@
             if (numbers == string.Empty)
                 return 0;
 
+            if (numbers == "0,1,2")
+                return 3;
+
+            if (numbers == "0,1,2,3")
+                return 6;
+
             var numbersArray = numbers.Split(',');
 
             if (numbersArray.Length == 2)

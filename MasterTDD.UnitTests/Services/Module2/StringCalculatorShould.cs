@@ -38,5 +38,21 @@ namespace MasterTDD.UnitTests.Services.Module2
 
             result.Should().Be(expected);
         }
+
+        [Fact]
+        public void ReturnSumGiven3Numbers()
+        {
+            var result = StringCalculatorService.Add("0,1,2");
+
+            result.Should().Be(3);
+        }
+
+        [Fact]
+        public void ReturnSumGiven4Numbers()
+        {
+            var result = StringCalculatorService.Add("0,1,2,3");
+
+            result.Should().Be(6);
+        }
     }
 }
