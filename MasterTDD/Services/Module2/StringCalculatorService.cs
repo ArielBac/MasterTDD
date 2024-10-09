@@ -9,17 +9,12 @@
 
             var numbersArray = numbers.Split(',');
 
-            if (numbersArray.Length >= 2)
-            {
-                var sum = 0;
+            var sum = 0;
 
-                foreach (var number in numbersArray)
-                    sum += int.Parse(number);
+            foreach (var number in numbersArray)
+                sum += int.Parse(number);
 
-                return sum;
-            }
-
-            return int.Parse(numbers);
+            return sum;
         }
     }
 }
