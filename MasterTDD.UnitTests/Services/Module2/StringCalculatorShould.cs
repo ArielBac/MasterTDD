@@ -28,34 +28,15 @@ namespace MasterTDD.UnitTests.Services.Module2
             result.Should().Be(expected);
         }
 
-        [Fact]
-        public void Return1Given0And1()
+        [Theory]
+        [InlineData("0,1", 1)]
+        [InlineData("1,1", 2)]
+        [InlineData("2,3", 5)]
+        public void ReturnSumGivenTwoNumbers(string numbers, int expected)
         {
-            string numbers = "0,1";
-
             var result = StringCalculatorService.Add(numbers);
 
-            result.Should().Be(1);
-        }
-
-        [Fact]
-        public void Return2Given1And1()
-        {
-            string numbers = "1,1";
-
-            var result = StringCalculatorService.Add(numbers);
-
-            result.Should().Be(2);
-        }
-
-        [Fact]
-        public void Return5Given2And3()
-        {
-            string numbers = "2,3";
-
-            var result = StringCalculatorService.Add(numbers);
-
-            result.Should().Be(5);
+            result.Should().Be(expected);
         }
     }
 }
