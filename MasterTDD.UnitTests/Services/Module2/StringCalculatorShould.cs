@@ -37,5 +37,25 @@ namespace MasterTDD.UnitTests.Services.Module2
 
             result.Should().Be(1);
         }
+
+        [Fact]
+        public void Return2Given1And1()
+        {
+            string numbers = "1,1";
+
+            var result = StringCalculatorService.Add(numbers);
+
+            result.Should().Be(2);
+        }
+
+        [Fact]
+        public void Return5Given2And3()
+        {
+            string numbers = "2,3";
+
+            var result = StringCalculatorService.Add(numbers);
+
+            result.Should().Be(5);
+        }
     }
 }
