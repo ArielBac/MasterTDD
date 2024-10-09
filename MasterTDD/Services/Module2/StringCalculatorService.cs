@@ -7,14 +7,15 @@
             if (numbers == string.Empty)
                 return 0;
 
-            if (numbers == "0,1")
-                return 1;
+            var numbersArray = numbers.Split(',');
 
-            if (numbers == "1,1")
-                return 2;
+            if (numbersArray.Length == 2)
+            {
+                var number1 = int.Parse(numbersArray[0]);
+                var number2 = int.Parse(numbersArray[1]);
 
-            if (numbers == "2,3")
-                return 5;
+                return number1 + number2;
+            }
 
             return int.Parse(numbers);
         }
