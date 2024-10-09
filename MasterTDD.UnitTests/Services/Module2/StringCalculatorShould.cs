@@ -32,27 +32,14 @@ namespace MasterTDD.UnitTests.Services.Module2
         [InlineData("0,1", 1)]
         [InlineData("1,1", 2)]
         [InlineData("2,3", 5)]
-        public void ReturnSumGivenTwoNumbers(string numbers, int expected)
+        [InlineData("0,1,2", 3)]
+        [InlineData("0,1,2,3", 6)]
+        [InlineData("0,1,2,3,4", 10)]
+        public void ReturnSumGivenMoreThanOneNumber(string numbers, int expected)
         {
             var result = StringCalculatorService.Add(numbers);
 
             result.Should().Be(expected);
-        }
-
-        [Fact]
-        public void ReturnSumGiven3Numbers()
-        {
-            var result = StringCalculatorService.Add("0,1,2");
-
-            result.Should().Be(3);
-        }
-
-        [Fact]
-        public void ReturnSumGiven4Numbers()
-        {
-            var result = StringCalculatorService.Add("0,1,2,3");
-
-            result.Should().Be(6);
         }
     }
 }
