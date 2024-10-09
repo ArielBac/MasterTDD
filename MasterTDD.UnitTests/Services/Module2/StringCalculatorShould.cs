@@ -15,34 +15,17 @@ namespace MasterTDD.UnitTests.Services.Module2
             result.Should().Be(0);
         }
 
-        [Fact]
-        public void Return0Given0()
+        [Theory]
+        [InlineData("0", 0)]
+        [InlineData("1", 1)]
+        [InlineData("2", 2)]
+        public void ReturnNumberGivenSingleNumber(string number, int expected)
         {
-            string numbers = "0";
+            string numbers = number;
 
             var result = StringCalculatorService.Add(numbers);
 
-            result.Should().Be(0);
-        }
-
-        [Fact]
-        public void Return1Given1()
-        {
-            string numbers = "1";
-
-            var result = StringCalculatorService.Add(numbers);
-
-            result.Should().Be(1);
-        }
-
-        [Fact]
-        public void Return2Given2()
-        {
-            string numbers = "2";
-
-            var result = StringCalculatorService.Add(numbers);
-
-            result.Should().Be(2);
+            result.Should().Be(expected);
         }
     }
 }
