@@ -16,6 +16,16 @@ namespace MasterTDD.UnitTests.Services.Module2
         }
 
         [Fact]
+        public void Return0Given0()
+        {
+            string numbers = "0";
+
+            var result = StringCalculatorService.Add(numbers);
+
+            result.Should().Be(0);
+        }
+
+        [Fact]
         public void Return1Given1()
         {
             string numbers = "1";
@@ -23,6 +33,16 @@ namespace MasterTDD.UnitTests.Services.Module2
             var result = StringCalculatorService.Add(numbers);
 
             result.Should().Be(1);
+        }
+
+        [Fact]
+        public void Return2Given2()
+        {
+            string numbers = "2";
+
+            var result = StringCalculatorService.Add(numbers);
+
+            result.Should().Be(2);
         }
     }
 }
