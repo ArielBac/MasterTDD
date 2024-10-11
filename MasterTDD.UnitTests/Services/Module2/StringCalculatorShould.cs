@@ -58,6 +58,8 @@ namespace MasterTDD.UnitTests.Services.Module2
 
         [Theory]
         [InlineData("//;\n1;2", 3)]
+        [InlineData("//.\n1.2", 3)]
+        [InlineData("///\n1/2", 3)]
         public void ReturnSumGivenMoreThanOneNumberSplitByCustomDelimiter(string numbers, int expected)
         {
             var result = StringCalculatorService.Add(numbers);
