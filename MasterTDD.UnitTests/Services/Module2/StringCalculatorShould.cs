@@ -55,5 +55,14 @@ namespace MasterTDD.UnitTests.Services.Module2
 
             result.Should().Be(expected);
         }
+
+        [Theory]
+        [InlineData("//;\n1;2", 3)]
+        public void ReturnSumGivenMoreThanOneNumberSplitByCustomDelimiter(string numbers, int expected)
+        {
+            var result = StringCalculatorService.Add(numbers);
+
+            result.Should().Be(expected);
+        }
     }
 }
