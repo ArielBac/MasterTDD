@@ -7,14 +7,9 @@
             if (numbers == string.Empty)
                 return 0;
 
-            if (numbers == "1\n2,3" || numbers == "1\n2\n3")
-                return 6;
+            string[] delimiters = [",", "\n"];
 
-            if (numbers == "1\n2,3,4" || numbers == "1\n2\n3\n4")
-                return 10;
-
-
-            var numbersArray = numbers.Split(',');
+            var numbersArray = numbers.Split(delimiters, StringSplitOptions.None);
 
             var sum = 0;
 
