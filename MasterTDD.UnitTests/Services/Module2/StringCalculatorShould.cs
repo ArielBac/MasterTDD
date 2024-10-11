@@ -35,7 +35,16 @@ namespace MasterTDD.UnitTests.Services.Module2
         [InlineData("0,1,2", 3)]
         [InlineData("0,1,2,3", 6)]
         [InlineData("0,1,2,3,4", 10)]
-        public void ReturnSumGivenMoreThanOneNumber(string numbers, int expected)
+        public void ReturnSumGivenMoreThanOneNumberSplitByCommas(string numbers, int expected)
+        {
+            var result = StringCalculatorService.Add(numbers);
+
+            result.Should().Be(expected);
+        }
+
+        [Theory]
+        [InlineData("1\n2,3", 6)]
+        public void ReturnSumGivenMoreThanOneNumberSplitByNewLine(string numbers, int expected)
         {
             var result = StringCalculatorService.Add(numbers);
 
