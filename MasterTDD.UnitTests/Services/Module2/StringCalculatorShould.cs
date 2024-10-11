@@ -44,6 +44,9 @@ namespace MasterTDD.UnitTests.Services.Module2
 
         [Theory]
         [InlineData("1\n2,3", 6)]
+        [InlineData("1\n2\n3", 6)]
+        [InlineData("1\n2,3,4", 10)]
+        [InlineData("1\n2\n3\n4", 10)]
         public void ReturnSumGivenMoreThanOneNumberSplitByNewLine(string numbers, int expected)
         {
             var result = StringCalculatorService.Add(numbers);
