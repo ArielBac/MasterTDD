@@ -7,12 +7,18 @@
             if (numbers == string.Empty)
                 return 0;
 
-            if (numbers == "//;\n1;2" || numbers == "//.\n1.2" || numbers == "///\n1/2")
-                return 3;
+            List<string> delimiters = [",", "\n"];
 
-            string[] delimiters = [",", "\n"];
+            if (numbers.StartsWith("//"))
+            {
+                numbers = numbers.Substring(2);
+                var customDelimiter = numbers.First().ToString();
+                delimiters.Add(customDelimiter);
+            }
 
-            var numbersArray = numbers.Split(delimiters, StringSplitOptions.None);
+            string[] delimiterArray = [.. delimiters];
+
+            var numbersArray = numbers.Split(delimiterArray, StringSplitOptions.RemoveEmptyEntries);
 
             var sum = 0;
 
