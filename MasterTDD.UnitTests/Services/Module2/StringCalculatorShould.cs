@@ -92,7 +92,7 @@ namespace MasterTDD.UnitTests.Services.Module2
         [InlineData("-1")]
         [InlineData("-1,-2")]
         [InlineData("-1,-2,-3")]
-        public void ThrowExceptionGivenNegativeNumbersWithMessage(string numbers)
+        public void ThrowExceptionWithMessageGivenNegativeNumbersSplitByCommas(string numbers)
         {
             var result = () => StringCalculatorService.Add(numbers);
 
@@ -100,6 +100,34 @@ namespace MasterTDD.UnitTests.Services.Module2
 
             exception.Message.Should().StartWith("Negatives not allowed");
             exception.Message.Should().ContainAll(numbers);
+        }
+
+        [Fact]
+        public void ThrowExceptionWithMessageGivenNegativeNumbersSplitByNewLine()
+        {
+            var numbers = "1\n-2\n3\n-4";
+
+            var result = () => StringCalculatorService.Add(numbers);
+
+            var exception = result.Should().Throw<Exception>().Which;
+
+            exception.Message.Should().StartWith("Negatives not allowed");
+            exception.Message.Should().ContainAll("-2,-4");
+            exception.Message.Should().NotContainAny("1", "3");
+        }
+
+        [Fact]
+        public void ThrowExceptionWithMessageGivenNegativeNumbersSplitByCustomDelimiter()
+        {
+            var numbers = "//;\n1;-2;3;-4";
+
+            var result = () => StringCalculatorService.Add(numbers);
+
+            var exception = result.Should().Throw<Exception>().Which;
+
+            exception.Message.Should().StartWith("Negatives not allowed");
+            exception.Message.Should().ContainAll("-2,-4");
+            exception.Message.Should().NotContainAny("1", "3");
         }
     }
 }
