@@ -7,9 +7,6 @@
             if (numbers == string.Empty)
                 return 0;
 
-            if (numbers == "-1" || numbers == "-2" || numbers == "-3")
-                throw new Exception();
-
             List<string> delimiters = [",", "\n"];
 
             if (numbers.StartsWith("//"))
@@ -23,10 +20,23 @@
 
             var numbersArray = numbers.Split(delimiterArray, StringSplitOptions.RemoveEmptyEntries);
 
-            var sum = 0;
+            List<int> intNumberList = [];
+            List<int> negativeNumberList = [];
 
             foreach (var number in numbersArray)
-                sum += int.Parse(number);
+            {
+                var intNumber = int.Parse(number);
+
+                if (int.IsNegative(intNumber))
+                    negativeNumberList.Add(intNumber);
+
+                intNumberList.Add(intNumber);
+            }
+
+            if (negativeNumberList.Count > 0)
+                throw new Exception();
+
+            var sum = intNumberList.Sum();
 
             return sum;
         }
