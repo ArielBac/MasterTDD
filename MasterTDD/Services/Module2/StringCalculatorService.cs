@@ -15,7 +15,7 @@
             List<int> negativeNumbersList = intNumbersList.GetNegativeNumbersOrDefault();
 
             if (negativeNumbersList.Count > 0)
-                throw new Exception($"Negatives not allowed: {string.Join(", ", negativeNumbersList)}");
+                throw new Exception($"Negatives not allowed: {string.Join(",", negativeNumbersList)}");
 
             var sum = intNumbersList.Sum();
 
