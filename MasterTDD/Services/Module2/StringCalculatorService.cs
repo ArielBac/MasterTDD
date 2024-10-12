@@ -7,38 +7,61 @@
             if (numbers == string.Empty)
                 return 0;
 
-            List<string> delimiters = [",", "\n"];
+            var delimitersArray = GetDelimitersList(numbers);
+
+            var numbersArray = numbers.Split(delimitersArray, StringSplitOptions.RemoveEmptyEntries);
+
+            List<int> intNumbersList = numbersArray.ToIntNumbersList();
+            List<int> negativeNumbersList = intNumbersList.GetNegativeNumbersOrDefault();
+
+            if (negativeNumbersList == null || negativeNumbersList.Count > 0)
+                throw new Exception();
+
+            var sum = intNumbersList.Sum();
+
+            return sum;
+        }
+
+        private static string[] GetDelimitersList(string numbers)
+        {
+            List<string> delimitersList = [",", "\n"];
 
             if (numbers.StartsWith("//"))
             {
                 numbers = numbers.Substring(2);
                 var customDelimiter = numbers.First().ToString();
-                delimiters.Add(customDelimiter);
+                delimitersList.Add(customDelimiter);
             }
 
-            string[] delimiterArray = [.. delimiters];
+            string[] delimitersArray = [.. delimitersList];
 
-            var numbersArray = numbers.Split(delimiterArray, StringSplitOptions.RemoveEmptyEntries);
+            return delimitersArray;
+        }
 
-            List<int> intNumberList = [];
-            List<int> negativeNumberList = [];
+        private static List<int> ToIntNumbersList(this string[] numbersArray)
+        {
+            List<int> intNumbersList = [];
 
             foreach (var number in numbersArray)
             {
-                var intNumber = int.Parse(number);
-
-                if (int.IsNegative(intNumber))
-                    negativeNumberList.Add(intNumber);
-
-                intNumberList.Add(intNumber);
+                if (int.TryParse(number, out int intNumber))
+                    intNumbersList.Add(intNumber);
             }
 
-            if (negativeNumberList.Count > 0)
-                throw new Exception();
+            return intNumbersList;
+        }
 
-            var sum = intNumberList.Sum();
+        private static List<int> GetNegativeNumbersOrDefault(this List<int> numbersList)
+        {
+            List<int> negativeNumbersList = [];
 
-            return sum;
+            foreach (var number in numbersList)
+            {
+                if (int.IsNegative(number))
+                    negativeNumbersList.Add(number);
+            }
+
+            return negativeNumbersList;
         }
     }
 }
