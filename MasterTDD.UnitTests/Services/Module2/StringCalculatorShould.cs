@@ -71,5 +71,14 @@ namespace MasterTDD.UnitTests.Services.Module2
 
             result.Should().Be(expected);
         }
+
+        [Theory]
+        [InlineData("-1")]
+        public void ThrowExceptionGivenNegativeNumber(string numbers)
+        {
+            var result = () => StringCalculatorService.Add(numbers);
+
+            result.Should().Throw<Exception>();
+        }
     }
 }

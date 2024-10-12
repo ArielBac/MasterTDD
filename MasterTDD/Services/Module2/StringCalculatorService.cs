@@ -7,6 +7,9 @@
             if (numbers == string.Empty)
                 return 0;
 
+            if (numbers == "-1")
+                throw new Exception();
+
             List<string> delimiters = [",", "\n"];
 
             if (numbers.StartsWith("//"))
