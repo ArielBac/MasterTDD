@@ -74,9 +74,14 @@ namespace MasterTDD.UnitTests.Services.Module2
 
         [Theory]
         [InlineData("-1")]
-        [InlineData("-2")]
-        [InlineData("-3")]
-        public void ThrowExceptionGivenNegativeNumber(string numbers)
+        [InlineData("2\n-1")]
+        [InlineData("2,-1")]
+        [InlineData("-3\n1")]
+        [InlineData("-3,-2")]
+        [InlineData("-3,-2,-1")]
+        [InlineData("//.\n-3.-2.-1")]
+        [InlineData("//;\n3;2;-1")]
+        public void ThrowExceptionGivenNegativeNumbers(string numbers)
         {
             var result = () => StringCalculatorService.Add(numbers);
 
