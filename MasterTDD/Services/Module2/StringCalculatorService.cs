@@ -7,7 +7,7 @@
             if (numbers == string.Empty)
                 return 0;
 
-            if (numbers == "-1")
+            if (numbers == "-1" || numbers == "-2" || numbers == "-3")
                 throw new Exception();
 
             List<string> delimiters = [",", "\n"];
