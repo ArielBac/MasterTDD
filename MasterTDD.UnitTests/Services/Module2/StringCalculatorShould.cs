@@ -87,5 +87,17 @@ namespace MasterTDD.UnitTests.Services.Module2
 
             result.Should().Throw<Exception>();
         }
+
+        [Theory]
+        [InlineData("-1")]
+        public void ThrowExceptionGivenNegativeNumbersWithMessage(string numbers)
+        {
+            var result = () => StringCalculatorService.Add(numbers);
+
+            var exception = result.Should().Throw<Exception>().Which;
+
+            exception.Message.Should().StartWith("Negatives not allowed");
+            exception.Message.Should().ContainAll(numbers);
+        }
     }
 }

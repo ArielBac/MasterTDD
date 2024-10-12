@@ -14,8 +14,8 @@
             List<int> intNumbersList = numbersArray.ToIntNumbersList();
             List<int> negativeNumbersList = intNumbersList.GetNegativeNumbersOrDefault();
 
-            if (negativeNumbersList == null || negativeNumbersList.Count > 0)
-                throw new Exception();
+            if (negativeNumbersList.Count > 0)
+                throw new Exception($"Negatives not allowed: {string.Join(", ", negativeNumbersList)}");
 
             var sum = intNumbersList.Sum();
 
