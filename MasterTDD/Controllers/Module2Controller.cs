@@ -20,5 +20,20 @@ namespace MasterTDD.Controllers
 
             return Ok("Valid password.");
         }
+
+        [HttpPost("string-calculator")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult StringCalculator([FromBody] string numbers)
+        {
+            try
+            {
+                var result = StringCalculatorService.Add(numbers);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
