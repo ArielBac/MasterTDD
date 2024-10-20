@@ -11,7 +11,7 @@
 
             for (var i = 0; i < validDenominations.Length; i++)
             {
-                if (totalChange / validDenominations[i] >= 1)
+                if (Math.Round(totalChange / validDenominations[i], 2, MidpointRounding.AwayFromZero) >= 1)
                 {
                     denominations.Add(validDenominations[i]);
                     totalChange -= validDenominations[i];
