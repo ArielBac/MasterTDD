@@ -1,5 +1,4 @@
-﻿
-namespace MasterTDD.Services.Module2
+﻿namespace MasterTDD.Services.Module2
 {
     public class PasswordValidator
     {

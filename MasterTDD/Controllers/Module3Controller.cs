@@ -1,5 +1,4 @@
 ﻿using MasterTDD.Requests;
-using MasterTDD.Services.Module2;
 using MasterTDD.Services.Module3;
 using Microsoft.AspNetCore.Mvc;
 
