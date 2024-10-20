@@ -8,6 +8,8 @@ namespace MasterTDD.UnitTests.Services.Module3
         [Theory]
         [InlineData(100, 100, new double[] { 0 })]
         [InlineData(50, 100, new double[] { 50 })]
+        [InlineData(20, 40, new double[] { 20 })]
+        [InlineData(20, 30, new double[] { 10 })]
         [InlineData(25, 100, new double[] { 50, 20, 5 })]
         public void ReturnValidChangeArray(double totalCost, double totalPaid, double[] expected)
         {

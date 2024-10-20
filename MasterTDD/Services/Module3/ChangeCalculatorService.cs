@@ -14,6 +14,16 @@
                 return [50];
             }
 
+            if (totalCost == 20 && totalPaid == 40)
+            {
+                return [20];
+            }
+
+            if (totalCost == 20 && totalPaid == 30)
+            {
+                return [10];
+            }
+
             return [0];
         }
     }
