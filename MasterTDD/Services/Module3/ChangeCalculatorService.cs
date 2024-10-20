@@ -5,7 +5,7 @@
         public static double[] GetChange(double totalCost, double totalPaid)
         {
             var totalChange = totalPaid - totalCost;
-            var validDenominations = new[] { 100, 50, 20, 10, 5 };
+            var validDenominations = new[] { 100, 50, 20, 10, 5, 1 };
             var denominations = new List<double>() { };
 
 
