@@ -28,5 +28,16 @@ namespace MasterTDD.UnitTests.Services.Module3
 
             result.Should().BeEquivalentTo(expected);
         }
+
+        [Theory]
+        [InlineData(2, 1)]
+        public void ThrowExceptionWithMessageGivenTotalPaidLessThanTotalCost(double totalCost, double totalPaid)
+        {
+            var result = () => ChangeCalculatorService.GetChange(totalCost, totalPaid);
+
+            var exception = result.Should().Throw<Exception>().Which;
+
+            exception.Message.Should().Be("The total paid must be greater than or equal to the total cost.");
+        }
     }
 }

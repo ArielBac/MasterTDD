@@ -8,6 +8,9 @@
             var totalChange = totalPaid - totalCost;
             var denominations = new List<double>() { };
 
+            if (totalChange < 0)
+                throw new ArgumentException("The total paid must be greater than or equal to the total cost.");
+
             for (var i = 0; i < validDenominations.Length; i++)
             {
                 var division = Math.Round(totalChange / validDenominations[i], 3, MidpointRounding.ToPositiveInfinity);
