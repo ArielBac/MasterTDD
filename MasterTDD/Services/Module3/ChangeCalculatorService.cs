@@ -20,10 +20,6 @@
                 return [.. denominations];
             }
 
-            if (totalCost == 50 && totalPaid == 100)
-            {
-                return [totalChange];
-            }
 
             if (totalCost == 20 && totalPaid == 40)
             {
