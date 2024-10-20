@@ -5,7 +5,7 @@
         public static double[] GetChange(double totalCost, double totalPaid)
         {
             var totalChange = totalPaid - totalCost;
-            var validDenominations = new[] { 50 };
+            var validDenominations = new[] { 50, 20 };
             var denominations = new List<double>();
 
 
@@ -14,17 +14,15 @@
                 return [50, 20, 5];
             }
 
-            if (totalChange != 0 && totalChange % validDenominations[0] == 0)
+            foreach (var denomination in validDenominations)
             {
-                denominations.Add(validDenominations[0]);
-                return [.. denominations];
+                if (totalChange != 0 && totalChange % denomination == 0)
+                {
+                    denominations.Add(denomination);
+                    return [.. denominations];
+                }
             }
 
-
-            if (totalCost == 20 && totalPaid == 40)
-            {
-                return [totalChange];
-            }
 
             if (totalCost == 20 && totalPaid == 30)
             {
