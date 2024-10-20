@@ -5,31 +5,21 @@
         public static double[] GetChange(double totalCost, double totalPaid)
         {
             var totalChange = totalPaid - totalCost;
-            var validDenominations = new[] { 50, 20 };
-            var denominations = new List<double>();
+            var validDenominations = new[] { 100, 50, 20, 10, 5 };
+            var denominations = new List<double>() { };
 
-
-            if (totalCost == 25 && totalPaid == 100)
-            {
-                return [50, 20, 5];
-            }
 
             foreach (var denomination in validDenominations)
             {
-                if (totalChange != 0 && totalChange % denomination == 0)
+                if (totalChange / denomination >= 1)
                 {
                     denominations.Add(denomination);
-                    return [.. denominations];
+                    totalChange -= denomination;
                 }
             }
 
-
-            if (totalCost == 20 && totalPaid == 30)
-            {
-                return [totalChange];
-            }
-
-            return [0];
+            var sortedDenominations = denominations.OrderByDescending(x => x);
+            return [.. sortedDenominations];
         }
     }
 }

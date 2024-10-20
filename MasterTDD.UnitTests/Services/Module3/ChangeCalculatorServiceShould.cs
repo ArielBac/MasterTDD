@@ -6,7 +6,7 @@ namespace MasterTDD.UnitTests.Services.Module3
     public class ChangeCalculatorServiceShould
     {
         [Theory]
-        [InlineData(100, 100, new double[] { 0 })]
+        [InlineData(100, 100, new double[] { })]
         [InlineData(50, 100, new double[] { 50 })]
         [InlineData(20, 40, new double[] { 20 })]
         [InlineData(20, 30, new double[] { 10 })]
