@@ -13,6 +13,7 @@ namespace MasterTDD.UnitTests.Services.Module3
         [InlineData(25, 100, new double[] { 50, 20, 5 })]
         [InlineData(25, 26, new double[] { 1 })]
         [InlineData(25, 27, new double[] { 1, 1 })]
+        [InlineData(25.5, 26, new double[] { 0.5 })]
         public void ReturnValidChangeArray(double totalCost, double totalPaid, double[] expected)
         {
             var result = ChangeCalculatorService.GetChange(totalCost, totalPaid);
