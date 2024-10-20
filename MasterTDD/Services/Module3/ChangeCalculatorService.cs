@@ -9,12 +9,13 @@
             var denominations = new List<double>() { };
 
 
-            foreach (var denomination in validDenominations)
+            for (var i = 0; i < validDenominations.Length; i++)
             {
-                if (totalChange / denomination >= 1)
+                if (totalChange / validDenominations[i] >= 1)
                 {
-                    denominations.Add(denomination);
-                    totalChange -= denomination;
+                    denominations.Add(validDenominations[i]);
+                    totalChange -= validDenominations[i];
+                    i--;
                 }
             }
 
