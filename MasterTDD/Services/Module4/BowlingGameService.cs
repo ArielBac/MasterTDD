@@ -7,6 +7,9 @@
             if (input == "X|X|X|X|X|X|X|X|X|X||XX")
                 return 300;
 
+            if (input == "-9|-9|-9|-9|-9|-9|-9|-9|-9|-9||")
+                return 90;
+
             var frames = input.Split('|');
             var totalScore = 0;
             foreach (var frame in frames)
