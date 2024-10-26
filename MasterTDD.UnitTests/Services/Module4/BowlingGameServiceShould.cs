@@ -10,6 +10,7 @@ namespace MasterTDD.UnitTests.Services.Module4
         [InlineData("9-|9-|9-|9-|9-|9-|9-|9-|9-|9-||", 90)]
         [InlineData("8-|8-|8-|8-|8-|8-|8-|8-|8-|8-||", 80)]
         [InlineData("5-|5-|5-|5-|6-|6-|7-|7-|7-|7-||", 60)]
+        [InlineData("5/|5/|5/|5/|5/|5/|5/|5/|5/|5/||5", 150)]
         public void ReturnTotalScore(string input, int expectedScore)
         {
             var score = BowlingGameService.Run(input);
