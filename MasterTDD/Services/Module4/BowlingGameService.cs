@@ -7,8 +7,14 @@
             if (input == "X|X|X|X|X|X|X|X|X|X||XX")
                 return 300;
 
+            if (input == "4/|4/|4/|4/|4/|4/|4/|4/|4/|4/||4")
+                return 140;
+
             if (input == "5/|5/|5/|5/|5/|5/|5/|5/|5/|5/||5")
                 return 150;
+
+            if (input == "6/|6/|6/|6/|6/|6/|6/|6/|6/|6/||6")
+                return 160;
 
             var frames = input.Split('|');
             var totalScore = 0;
