@@ -7,7 +7,8 @@ namespace MasterTDD.UnitTests.Services.Module4
     {
         [Theory]
         [InlineData("X|X|X|X|X|X|X|X|X|X||XX", 300)]
-        public void Return300Score(string input, int expectedScore)
+        [InlineData("9-|9-|9-|9-|9-|9-|9-|9-|9-|9-||", 90)]
+        public void ReturnTotalScore(string input, int expectedScore)
         {
             var score = BowlingGameService.Run(input);
 
