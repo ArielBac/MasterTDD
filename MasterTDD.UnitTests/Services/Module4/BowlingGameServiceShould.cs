@@ -5,12 +5,13 @@ namespace MasterTDD.UnitTests.Services.Module4
 {
     public class BowlingGameServiceShould
     {
-        [Fact]
-        public void Return300Score()
+        [Theory]
+        [InlineData("X|X|X|X|X|X|X|X|X|X||XX", 300)]
+        public void Return300Score(string input, int expectedScore)
         {
-            var score = BowlingGameService.Run("X|X|X|X|X|X|X|X|X|X||XX");
+            var score = BowlingGameService.Run(input);
 
-            score.Should().Be(300);
+            score.Should().Be(expectedScore);
         }
     }
 }
