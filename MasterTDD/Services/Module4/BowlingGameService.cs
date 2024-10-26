@@ -7,21 +7,18 @@
             if (input == "X|X|X|X|X|X|X|X|X|X||XX")
                 return 300;
 
-            if (input == "4/|4/|4/|4/|4/|4/|4/|4/|4/|4/||4")
-                return 140;
-
-            if (input == "5/|5/|5/|5/|5/|5/|5/|5/|5/|5/||5")
-                return 150;
-
-            if (input == "6/|6/|6/|6/|6/|6/|6/|6/|6/|6/||6")
-                return 160;
-
             var frames = input.Split('|');
             var totalScore = 0;
             foreach (var frame in frames)
             {
-                if (frame.Length > 1 && frame[1] == '-')
-                    totalScore += int.Parse(frame[0].ToString());
+                if (frame.Length > 1)
+                {
+                    if (frame[1] == '-')
+                        totalScore += int.Parse(frame[0].ToString());
+
+                    if (frame[1] == '/')
+                        totalScore += 10 + int.Parse(frame[0].ToString());
+                }
             }
 
             return totalScore;
