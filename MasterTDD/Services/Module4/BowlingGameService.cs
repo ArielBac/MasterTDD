@@ -7,18 +7,19 @@
             if (input == "X|X|X|X|X|X|X|X|X|X||XX")
                 return 300;
 
-            var frames = input.Split('|');
+            var splitInput = input.Split('|');
+            var totalFrames = 10;
             var totalScore = 0;
-            foreach (var frame in frames)
-            {
-                if (frame.Contains('-'))
-                    totalScore += int.Parse(frame.First(x => x != '-').ToString());
 
-                if (frame.Length > 1)
-                {
-                    if (frame[1] == '/')
-                        totalScore += 10 + int.Parse(frame[0].ToString());
-                }
+            for (var i = 0; i < totalFrames; i++)
+            {
+                if (splitInput[i].Contains('/'))
+                    totalScore += 10;
+
+                var isParsedScore = int.TryParse(splitInput[i].FirstOrDefault(char.IsNumber).ToString(), out var parsedScore);
+
+                if (isParsedScore)
+                    totalScore += parsedScore;
             }
 
             return totalScore;
