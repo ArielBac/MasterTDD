@@ -18,10 +18,7 @@ namespace MasterTDD.Services.Module4
                 {
                     _totalScore += 10;
 
-                    if (inputs[i] == string.Empty)
-                        AddScore(inputs[i + 2]);
-                    else
-                        AddScore(inputs[i + 1]);
+                    AddScore(inputs[i + 1]);
                 }
                 else
                     AddScore(inputs[i]);
