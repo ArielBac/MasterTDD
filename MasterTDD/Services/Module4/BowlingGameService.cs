@@ -1,38 +1,43 @@
-﻿namespace MasterTDD.Services.Module4
+﻿
+namespace MasterTDD.Services.Module4
 {
     public static class BowlingGameService
     {
+        private static int _totalScore;
         public static int Run(string input)
         {
             if (input == "X|X|X|X|X|X|X|X|X|X||XX")
                 return 300;
 
-            if (input == "4/|4/|4/|4/|4/|4/|4/|4/|4/|4/||8")
-                return 144;
+            var inputs = input.Split('|');
+            _totalScore = 0;
 
-            if (input == "5/|5/|5/|5/|5/|5/|5/|5/|5/|5/||7")
-                return 152;
-
-            if (input == "6/|6/|6/|6/|6/|6/|6/|6/|6/|6/||7")
-                return 161;
-
-
-            var splitInput = input.Split('|');
-            var totalFrames = 10;
-            var totalScore = 0;
-
-            for (var i = 0; i < totalFrames; i++)
+            for (var i = 0; i < inputs.Length; i++)
             {
-                if (splitInput[i].Contains('/'))
-                    totalScore += 10;
+                if (inputs[i].Contains('/'))
+                {
+                    _totalScore += 10;
 
-                var isParsedScore = int.TryParse(splitInput[i].FirstOrDefault(char.IsNumber).ToString(), out var parsedScore);
-
-                if (isParsedScore)
-                    totalScore += parsedScore;
+                    if (inputs[i] == string.Empty)
+                        AddScore(inputs[i + 2]);
+                    else
+                        AddScore(inputs[i + 1]);
+                }
+                else
+                    AddScore(inputs[i]);
             }
 
-            return totalScore;
+            return _totalScore;
+        }
+
+        private static void AddScore(string input)
+        {
+            var isParsedScore = false;
+
+            isParsedScore = int.TryParse(input.FirstOrDefault(char.IsNumber).ToString(), out int parsedScore);
+
+            if (isParsedScore)
+                _totalScore += parsedScore;
         }
     }
 }
