@@ -4,6 +4,8 @@ namespace MasterTDD.Services.Module4
     public static class BowlingGameService
     {
         private static int _totalScore;
+        private static bool IsStrike(string frame) => frame == "X";
+        private static bool IsSpare(string frame) => frame.Contains('/');
 
         public static int Run(string input)
         {
@@ -15,7 +17,7 @@ namespace MasterTDD.Services.Module4
 
             for (var i = 0; i < frames.Length; i++)
             {
-                if (frames[i] == "X")
+                if (IsStrike(frames[i]))
                 {
                     _totalScore += 10;
 
@@ -48,7 +50,7 @@ namespace MasterTDD.Services.Module4
                     AddScore(frames[i + 1][0]);
                     AddScore(frames[i + 1][1]);
                 }
-                else if (frames[i].Contains('/'))
+                else if (IsSpare(frames[i]))
                 {
                     _totalScore += 10;
 
