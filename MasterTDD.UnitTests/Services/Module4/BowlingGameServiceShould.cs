@@ -8,7 +8,7 @@ namespace MasterTDD.UnitTests.Services.Module4
         [Theory]
         [InlineData("X|X|X|X|X|X|X|X|X|X||XX", 300)]
         [InlineData("X|X|X|X|X|X|X|X|X|X||X5", 295)]
-        [InlineData("X|X|X|X|X|X|X|X|X|X||5X", 295)]
+        [InlineData("X|X|X|X|X|X|X|X|X|X||5X", 290)]
         [InlineData("9-|9-|9-|9-|9-|9-|9-|9-|9-|9-||", 90)]
         [InlineData("-9|-9|-9|-9|-9|-9|-9|-9|-9|-9||", 90)]
         [InlineData("8-|8-|8-|8-|8-|8-|8-|8-|8-|8-||", 80)]
