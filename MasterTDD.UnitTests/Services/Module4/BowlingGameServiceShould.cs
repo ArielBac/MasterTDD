@@ -21,10 +21,10 @@ namespace MasterTDD.UnitTests.Services.Module4
         [InlineData("5/|5/|5/|5/|5/|5/|5/|5/|5/|5/||7", 152)]
         [InlineData("6/|6/|6/|6/|6/|6/|6/|6/|6/|6/||6", 160)]
         [InlineData("6/|6/|6/|6/|6/|6/|6/|6/|6/|6/||7", 161)]
-        [InlineData("X|7/|9-|X|-8|8/|-6|X|X|X||81 ", 167)]
-        [InlineData("52|7/|9-|X|7/|8/|X|51|X|X||81 ", 162)]
-        [InlineData("X|3/|X|81|4/|X|X|8/|13|8/||X ", 171)]
-        [InlineData("X|81|X|81|4/|X|X|X|13|8/||X ", 165)]
+        [InlineData("X|7/|9-|X|-8|8/|-6|X|X|X||81", 167)]
+        [InlineData("52|7/|9-|X|7/|8/|X|51|X|X||81", 162)]
+        [InlineData("X|3/|X|81|4/|X|X|8/|13|8/||X", 171)]
+        [InlineData("X|81|X|81|4/|X|X|X|13|8/||X", 165)]
         public void ReturnTotalScore(string input, int expectedScore)
         {
             var score = BowlingGameService.Run(input);
