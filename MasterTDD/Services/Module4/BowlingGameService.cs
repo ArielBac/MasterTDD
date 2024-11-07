@@ -15,68 +15,76 @@ namespace MasterTDD.Services.Module4
 
             _totalScore = 0;
 
-            for (var i = 0; i < frames.Length; i++)
+            for (var frameIndex = 0; frameIndex < frames.Length; frameIndex++)
             {
-                if (IsStrike(frames[i]))
+                if (IsStrike(frames[frameIndex]))
                 {
-                    _totalScore += 10;
-
-                    if (i == 8)
-                    {
-                        AddScore(frames[i + 1][0]);
-                        AddScore(bonus[0]);
-                        continue;
-                    }
-
-                    if (i == 9)
-                    {
-                        AddScore(bonus[0]);
-                        AddScore(bonus[1]);
-                        continue;
-                    }
-
-                    if (frames[i + 1][0] == 'X')
-                    {
-                        _totalScore += 10;
-                        AddScore(frames[i + 2][0]);
-                        continue;
-                    }
-                    else if (frames[i + 1].Contains('/'))
-                    {
-                        _totalScore += 10;
-                        continue;
-                    }
-
-                    AddScore(frames[i + 1][0]);
-                    AddScore(frames[i + 1][1]);
+                    AddStrikeScore(frames, bonus, frameIndex);
                 }
-                else if (IsSpare(frames[i]))
+                else if (IsSpare(frames[frameIndex]))
                 {
-                    _totalScore += 10;
-
-                    if (i == 9)
-                    {
-                        AddScore(bonus[0]);
-                        break;
-                    }
-
-                    AddScore(frames[i + 1].FirstOrDefault(char.IsNumber));
+                    AddSpareScore(frames, bonus, frameIndex);
                 }
                 else
                 {
-                    AddScore(frames[i][0]);
-                    AddScore(frames[i][1]);
+                    AddNextTwoScores(frames[frameIndex][0], frames[frameIndex][1]);
                 }
             }
 
             return _totalScore;
         }
 
-        private static void AddScore(char input)
+        private static void AddStrikeScore(string[] frames, string bonus, int frameIndex)
         {
-            if (input == '-')
-                return;
+            _totalScore += 10;
 
+            if (frameIndex == 8)
+            {
+                AddNextTwoScores(frames[frameIndex + 1][0], bonus[0]);
+            }
+            else if (frameIndex == 9)
+            {
+                AddNextTwoScores(bonus[0], bonus[1]);
+            }
+            else if (IsStrike(frames[frameIndex + 1]))
+            {
+                _totalScore += 10;
+                AddSingleScore(frames[frameIndex + 2][0]);
+            }
+            else if (IsSpare(frames[frameIndex + 1]))
+            {
+                _totalScore += 10;
+            }
+            else
+            {
+                AddNextTwoScores(frames[frameIndex + 1][0], frames[frameIndex + 1][1]);
+            }
+        }
+
+        private static void AddSpareScore(string[] frames, string bonus, int frameIndex)
+        {
+            _totalScore += 10;
+
+            if (frameIndex == 9)
+            {
+                AddSingleScore(bonus[0]);
+            }
+            else
+            {
+                AddSingleScore(frames[frameIndex + 1][0]);
+            }
+
+        }
+
+
+        private static void AddNextTwoScores(char first, char second)
+        {
+            AddSingleScore(first);
+            AddSingleScore(second);
+        }
+
+        private static void AddSingleScore(char input)
+        {
             if (input == 'X')
             {
                 _totalScore += 10;
