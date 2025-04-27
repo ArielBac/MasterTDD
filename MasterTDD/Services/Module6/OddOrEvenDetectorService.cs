@@ -2,7 +2,7 @@
 {
     public class OddOrEvenDetectorService()
     {
-        public bool IsRandomNumberOdd(int number)
+        public bool IsRandomNumberOdd()
         {
             return true;
         }
