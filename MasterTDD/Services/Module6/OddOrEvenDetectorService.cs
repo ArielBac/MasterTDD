@@ -6,7 +6,7 @@
         {
             var randomNumber = randomGenerator.GetRandomBetween1And100();
 
-            return true;
+            return randomNumber % 2 != 0;
         }
     }
 }

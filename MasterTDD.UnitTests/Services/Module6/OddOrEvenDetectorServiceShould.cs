@@ -16,6 +16,8 @@ namespace MasterTDD.UnitTests.Services.Module6
         [Fact]
         public void ReturnTrueIfOdd()
         {
+            _randomGeneratorMock.Setup(x => x.GetRandomBetween1And100()).Returns(1);
+
             var isOdd = _service.IsRandomNumberOdd();
 
             isOdd.Should().BeTrue();
@@ -32,6 +34,8 @@ namespace MasterTDD.UnitTests.Services.Module6
         [Fact]
         public void ReturnFalseIfEven()
         {
+            _randomGeneratorMock.Setup(x => x.GetRandomBetween1And100()).Returns(2);
+
             var isOdd = _service.IsRandomNumberOdd();
 
             isOdd.Should().BeFalse();
