@@ -20,7 +20,7 @@ namespace MasterTDD.UnitTests.Services.Module6
         [InlineData(99)]
         public void ReturnTrueIfOdd(int oddNumber)
         {
-            _randomGeneratorMock.Setup(x => x.GetRandomBetween1And100()).Returns(1);
+            _randomGeneratorMock.Setup(x => x.GetRandomBetween1And100()).Returns(oddNumber);
 
             var isOdd = _service.IsRandomNumberOdd();
 
