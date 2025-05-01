@@ -28,5 +28,13 @@ namespace MasterTDD.UnitTests.Services.Module6
 
             _randomGeneratorMock.Verify(x => x.GetRandomBetween1And100(), Times.Once);
         }
+
+        [Fact]
+        public void ReturnFalseIfEven()
+        {
+            var isOdd = _service.IsRandomNumberOdd();
+
+            isOdd.Should().BeFalse();
+        }
     }
 }
