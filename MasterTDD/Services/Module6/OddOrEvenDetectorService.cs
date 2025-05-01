@@ -1,9 +1,11 @@
 ﻿namespace MasterTDD.Services.Module6
 {
-    public class OddOrEvenDetectorService()
+    public class OddOrEvenDetectorService(IRandomGenerator randomGenerator)
     {
         public bool IsRandomNumberOdd()
         {
+            var randomNumber = randomGenerator.GetRandomBetween1And100();
+
             return true;
         }
     }

@@ -10,7 +10,7 @@ namespace MasterTDD.UnitTests.Services.Module6
         private readonly Mock<IRandomGenerator> _randomGeneratorMock = new();
         public OddOrEvenDetectorServiceShould()
         {
-            _service = new OddOrEvenDetectorService();
+            _service = new OddOrEvenDetectorService(_randomGeneratorMock.Object);
         }
 
         [Fact]
