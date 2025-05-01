@@ -13,6 +13,14 @@ namespace MasterTDD.UnitTests.Services.Module6
             _service = new OddOrEvenDetectorService(_randomGeneratorMock.Object);
         }
 
+        [Fact]
+        public void CallGetRandomBetween1And100()
+        {
+            var isOdd = _service.IsRandomNumberOdd();
+
+            _randomGeneratorMock.Verify(x => x.GetRandomBetween1And100(), Times.Once);
+        }
+
         [Theory]
         [InlineData(1)]
         [InlineData(3)]
@@ -27,18 +35,14 @@ namespace MasterTDD.UnitTests.Services.Module6
             isOdd.Should().BeTrue();
         }
 
-        [Fact]
-        public void CallGetRandomBetween1And100()
+        [Theory]
+        [InlineData(2)]
+        [InlineData(4)]
+        [InlineData(6)]
+        [InlineData(100)]
+        public void ReturnFalseIfEven(int evenNumber)
         {
-            var isOdd = _service.IsRandomNumberOdd();
-
-            _randomGeneratorMock.Verify(x => x.GetRandomBetween1And100(), Times.Once);
-        }
-
-        [Fact]
-        public void ReturnFalseIfEven()
-        {
-            _randomGeneratorMock.Setup(x => x.GetRandomBetween1And100()).Returns(2);
+            _randomGeneratorMock.Setup(x => x.GetRandomBetween1And100()).Returns(evenNumber);
 
             var isOdd = _service.IsRandomNumberOdd();
 
