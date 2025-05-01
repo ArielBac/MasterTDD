@@ -13,8 +13,12 @@ namespace MasterTDD.UnitTests.Services.Module6
             _service = new OddOrEvenDetectorService(_randomGeneratorMock.Object);
         }
 
-        [Fact]
-        public void ReturnTrueIfOdd()
+        [Theory]
+        [InlineData(1)]
+        [InlineData(3)]
+        [InlineData(5)]
+        [InlineData(99)]
+        public void ReturnTrueIfOdd(int oddNumber)
         {
             _randomGeneratorMock.Setup(x => x.GetRandomBetween1And100()).Returns(1);
 
